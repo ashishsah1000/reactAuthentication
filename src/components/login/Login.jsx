@@ -15,7 +15,7 @@ import {
 import { loginRequest } from "../../apis/authentication/authentication";
 
 export default function Login() {
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const elements = e.target.elements; // get form elements
     const data = {};
@@ -29,7 +29,7 @@ export default function Login() {
       }
     }
     console.log(data, "sending request for the backend");
-    loginRequest(data);
+    const res = await loginRequest(data);
   };
 
   return (

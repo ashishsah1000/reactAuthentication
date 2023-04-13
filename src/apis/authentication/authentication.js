@@ -9,6 +9,7 @@ export const loginRequest = async (loginData) => {
   const url = baseUrl + "/users/login";
   console.log();
   const res = await axios.post(url, loginData, {
+    withCredentials: "true",
     headers: {
       "Content-Type": "application/json",
     },
@@ -24,6 +25,11 @@ export const signupRequest = async (signupData) => {
 
 export const logout = async () => {
   const url = baseUrl + "/users/logout";
-  const res = await axios.get(url);
+  const res = await axios.get(url, {
+    withCredentials: "true",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   console.log("logout response from the backend", res);
 };
